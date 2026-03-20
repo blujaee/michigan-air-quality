@@ -74,6 +74,7 @@ def build_figure(pollutant):
     return fig
 
 app = Dash(__name__)
+server = app.server
 
 app.layout = html.Div(
     style={
