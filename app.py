@@ -73,7 +73,24 @@ def build_figure(pollutant):
     )
     return fig
 
-app = Dash(__name__)
+TITLE = "Michigan Air Quality"
+SUMMARY = (
+    "Interactive map of 2024 EPA air quality data across Michigan: "
+    "PM2.5, ozone, and NO2 levels at monitoring sites statewide."
+)
+
+app = Dash(
+    __name__,
+    title=TITLE,
+    meta_tags=[
+        {"name": "viewport", "content": "width=device-width, initial-scale=1"},
+        {"name": "description", "content": SUMMARY},
+        {"property": "og:title", "content": TITLE},
+        {"property": "og:description", "content": SUMMARY},
+        {"property": "og:type", "content": "website"},
+        {"name": "twitter:card", "content": "summary"},
+    ],
+)
 server = app.server
 
 app.layout = html.Div(
